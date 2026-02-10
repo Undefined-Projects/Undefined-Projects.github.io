@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undefined_club | Organización</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #a855f7;
+            --secondary: #ec4899;
+            --accent: #d946ef;
+            --dark: #0a0a0a;
+            --darker: #000000;
+            --gray: #9ca3af;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 8, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-family: 'Space Mono', monospace;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            background: 
+                radial-gradient(circle at 20% 50%, var(--primary) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--secondary) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, var(--accent) 0%, transparent 50%);
+            filter: blur(100px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 50px) scale(0.9); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            padding: 100px 20px 80px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .glitch {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: var(--light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tagline {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            animation: fadeIn 1.5s ease-out 0.6s backwards;
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--light);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Mesa Directiva Cards */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .board-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(255, 51, 102, 0.05));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .board-card:nth-child(1) { animation-delay: 0.1s; }
+        .board-card:nth-child(2) { animation-delay: 0.2s; }
+        .board-card:nth-child(3) { animation-delay: 0.3s; }
+        .board-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .board-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .board-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .board-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.2);
+        }
+
+        .role-badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--dark);
+            background: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .role-badge.president { background: var(--secondary); color: white; }
+        .role-badge.vice { background: var(--primary); }
+        .role-badge.secretary { background: var(--accent); }
+        .role-badge.treasurer { background: #ffd700; }
+        .role-badge.marketing { background: #ff9500; }
+        .role-badge.social { background: #2fff00; }
+
+        .board-card h3 {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .board-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Departments Grid */
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .dept-card {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(136, 146, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dept-card:hover::before {
+            opacity: 1;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0, 217, 255, 0.15);
+        }
+
+        .dept-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        .dept-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dept-card .desc {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .responsibilities {
+            list-style: none;
+        }
+
+        .responsibilities li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+
+        .responsibilities li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Team Members */
+        .team-member {
+            background: rgba(0, 217, 255, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .member-name {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(136, 146, 176, 0.2);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .tech-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, var(--primary) 2px, var(--primary) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, var(--primary) 2px, var(--primary) 4px);
+            background-size: 100px 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .board-grid, .dept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 60px 20px 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Sponsors Section */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .sponsor-card {
+            background: rgba(10, 14, 39, 0.4);
+            border: 1px solid rgba(136, 146, 176, 0.2);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .sponsor-logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            filter: grayscale(0%);
+        }
+
+        .sponsor-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: var(--light);
+            font-weight: 700;
+        }
+
+        /* Team Grid Section */
+        .full-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(0, 255, 136, 0.05));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .team-card h4 {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .team-card .position {
+            font-family: 'Space Mono', monospace;
+            color: var(--primary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Location Section */
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .map-container {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 51, 102, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .location-info {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(136, 146, 176, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            font-family: 'Space Mono', monospace;
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            color: var(--light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 968px) {
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Schedule Section */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .schedule-card {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(136, 146, 176, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.15);
+        }
+
+        .schedule-day {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .schedule-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .schedule-activity {
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(136, 146, 176, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(255, 51, 102, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image::after {
+            opacity: 1;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            font-family: 'Space Mono', monospace;
+            color: var(--gray);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .blog-link {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--accent);
+        }
+
+        .blog-link::after {
+            content: ' →';
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .blog-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Social Media Buttons */
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid;
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #FD1D1D);
+            border-color: #E1306C;
+            color: white;
+        }
+
+        .social-btn.instagram:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+        }
+
+        .social-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-color: #25D366;
+            color: white;
+        }
+
+        .social-btn.whatsapp:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .social-btn-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="tech-pattern"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="logo.jpeg" alt="Undefined Club Logo">
+                <span>undefined_club</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">Menu</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#board">Mesa Directiva</a></li>
+                <li><a href="#departments">Departamentos</a></li>
+                <li><a href="#sponsors">Patrocinadores</a></li>
+                <li><a href="#schedule">Horarios</a></li>
+                <li><a href="#location">Ubicación</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="glitch">undefined_club</h1>
+        <div class="subtitle">Modelo Híbrido: Cooperativa / Club</div>
+        <p class="tagline">
+            Innovación, desarrollo y aprendizaje colaborativo. Impulsando el talento tecnológico 
+            a través de proyectos reales, educación práctica y vinculación con la industria.
+        </p>
+    </header>
+
+    <main>
+        <!-- Mesa Directiva -->
+        <section id="board">
+            <h2 class="section-title">Mesa Directiva</h2>
+            <div class="board-grid">
+                <div class="board-card">
+                    <span class="role-badge president">Presidente</span>
+                    <h3>Alberto Márquez Escamilla</h3>
+                    <p>Fundador | Visión estratégica y representación institucional</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge vice">Vicepresidente</span>
+                    <h3>Christoper Rogelio Manriquez Quiñonez</h3>
+                    <p>Apoyo operativo y seguimiento de objetivos departamentales</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge secretary">Secretario</span>
+                    <h3>Valeria Sofía Gómez López</h3>
+                    <p>Gestión documental y control de miembros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge secretary">Secretario</span>
+                    <h3>Alan Olea Batres</h3>
+                    <p>Gestión documental y control de miembros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge treasurer">Tesorero</span>
+                    <h3>Aldo Mauricio Martinez Chavira</h3>
+                    <p>Administración de presupuestos y recursos financieros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge social">Social Media Manager</span>
+                    <h3>Renata Morales Ibarra</h3>
+                    <p>Creación de contenido y administración de redes</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge social">Social Media Manager</span>
+                    <h3>Samuel Vega Pacheco</h3>
+                    <p>Creación de contenido y administración de redes</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge marketing">Marketing</span>
+                    <h3>Daniel Valentin Rodríguez Valverde</h3>
+                    <p>Creación e implementación de estrategias de atracción al proyecto</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departamentos -->
+        <section id="departments" class="fade-in">
+            <h2 class="section-title">Departamentos Operativos</h2>
+            
+            <div class="dept-grid">
+                <!-- Académica -->
+                <div class="dept-card">
+                    <div class="dept-icon">📚</div>
+                    <h3>Área Académica</h3>
+                    <p class="desc">Educación y formación técnica de miembros</p>
+                    
+                    <div class="team-member">
+                        <div class="member-name">Alberto Márquez Escamilla</div>
+                        <div class="member-role">Coordinador de Instructores</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Christoper Rogelio Manriquez Quiñonez</div>
+                        <div class="member-role">Mentor</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Alan Olea Batres</div>
+                        <div class="member-role">Mentor</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Diseño de planes de estudio y talleres técnicos</li>
+                        <li>Mentoría y resolución de dudas técnicas</li>
+                        <li>Desarrollo de cursos especializados (ej. CRUD con Minecraft)</li>
+                    </ul>
+                </div>
+
+                <!-- Proyectos -->
+                <div class="dept-card">
+                    <div class="dept-icon">💻</div>
+                    <h3>Área de Proyectos</h3>
+                    <p class="desc">Desarrollo de soluciones tecnológicas</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Alberto Marquez Escamilla</div>
+                        <div class="member-role">Project Manager / Lead Developer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Christoper Rogelio Manriquez Quiñonez</div>
+                        <div class="member-role">Lead Developer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Alan Olea Batres</div>
+                        <div class="member-role">Lead Developer</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de proyectos externos y tiempos de entrega</li>
+                        <li>Desarrollo con React Native y Node.js/MongoDB</li>
+                        <li>Proyectos de IoT con C++ (ESP32, Raspberry Pi)</li>
+                        <li>Liderazgo técnico en diferentes stacks</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                        <strong style="color: var(--accent);">Roles:</strong> Project Managers, Lead Developers, Desarrolladores
+                    </p>
+                </div>
+
+                <!-- Logística y Vinculación -->
+                <div class="dept-card">
+                    <div class="dept-icon">🤝</div>
+                    <h3>Logística y Vinculación</h3>
+                    <p class="desc">Conexión con el ecosistema de innovación</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Renata Morales Ibarra</div>
+                        <div class="member-role">Relaciones Externas</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Aldo Mauricio Martinez Chavira</div>
+                        <div class="member-role">Gestor de Infraestructura</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Valeria Sofía Gómez López</div>
+                        <div class="member-role">Relaciones Externas</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de convenios con empresas e instituciones</li>
+                        <li>Organización de visitas y hackathones</li>
+                        <li>Vinculación con espacios como Startup Garden</li>
+                        <li>Administración de infraestructura física</li>
+                        <li>Inventario de equipos (impresoras 3D, sensores, laptops)</li>
+                        <li>Mantenimiento de servidores internos</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                        <strong style="color: var(--accent);">Roles:</strong> Relaciones Externas, Gestor de Infraestructura
+                    </p>
+                </div>
+
+                <!-- Comunicación y Marketing -->
+                <div class="dept-card">
+                    <div class="dept-icon">🎨</div>
+                    <h3>Comunicación y Marketing</h3>
+                    <p class="desc">Identidad visual y difusión del club</p>
+                    
+                    <div class="team-member">
+                        <div class="member-name">Renata Morales Ibarra</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Samuel Vega Pacheco</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Daniel Valentin Rodríguez Valverde</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de redes sociales y reclutamiento</li>
+                        <li>Diseño de identidad visual y branding</li>
+                        <li>Creación de materiales para talleres y eventos</li>
+                        <li>Difusión de logros y proyectos del club</li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="dept-card">
+                    <div class="dept-icon">⚖️</div>
+                    <h3>Área Legal</h3>
+                    <p class="desc">Cumplimiento normativo y documentación</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Valeria Sofía Gómez López</div>
+                        <div class="member-role">Legal</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de aspectos legales y regulatorios</li>
+                        <li>Documentación de acuerdos y convenios</li>
+                        <li>Protección de propiedad intelectual</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors -->
+        <section id="sponsors" class="fade-in">
+            <h2 class="section-title">Nuestros Patrocinadores</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🚀</div>
+                    <div class="sponsor-name">Startup Garden</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🏢</div>
+                    <div class="sponsor-name">D'Grade</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🎓</div>
+                    <div class="sponsor-name">Tec de Monterrey</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedules -->
+        <section id="schedule" class="fade-in">
+            <h2 class="section-title">Horarios</h2>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-day">Martes</div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30 - 21:00</div>
+                        <div class="schedule-activity">Sesión Teórica / Taller</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00 - 22:00</div>
+                        <div class="schedule-activity">Convivencia</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-day">Jueves</div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30 - 21:00</div>
+                        <div class="schedule-activity">Sesión Práctica / Taller</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00 - 22:00</div>
+                        <div class="schedule-activity">Convivencia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section id="location" class="fade-in">
+            <h2 class="section-title">Nuestra Ubicación</h2>
+            <div class="location-container">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-106.0849%2C28.6687%2C-106.0749%2C28.6787&amp;layer=mapnik&amp;marker=28.67376%2C-106.07993" 
+                            style="border: 0;">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="location-info">
+                    <div class="info-item">
+                        <div class="info-label">Dirección</div>
+                        <div class="info-value">Campus Universitario Tecnológico de Monterrey CUU<br>PIT 3, Piso 7<br>Startup Garden <br>Av. H. Colegio Militar s/n, Bodegas del Estado, 31300 Chihuahua, Chih.</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Horario de Atención</div>
+                        <div class="info-value">Lunes a Viernes<br>16:00 - 21:00 hrs</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Contacto</div>
+                        <div class="info-value">
+                            Email: alberto.marquez.escamilla@gmail.com<br>
+                            Tel: (614) 123-8085
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Redes Sociales</div>
+                        <div class="social-buttons">
+                            <a href="https://instagram.com/undefined_club_cuu" target="_blank" class="social-btn instagram">
+                                <span class="social-btn-icon">📷</span>
+                                <span>Síguenos en Instagram</span>
+                            </a>
+                            <a href="https://chat.whatsapp.com/I77EJNh55pPBRBp0qgwfvP" target="_blank" class="social-btn whatsapp">
+                                <span class="social-btn-icon">💬</span>
+                                <span>Únete al Grupo de WhatsApp!</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog" class="fade-in">
+            <h2 class="section-title">Blog & Noticias</h2>
+            <div class="blog-grid">
+
+                <div class="blog-card">
+                    <div class="blog-image">💼</div>
+                    <div class="blog-content">
+                        <div class="blog-date">20 Ene 2026</div>
+                        <h3 class="blog-title">Alianza con Startup Garden</h3>
+                        <p class="blog-excerpt">
+                            Firmamos un convenio estratégico con Startup Garden que nos brinda acceso a 
+                            espacios de coworking y mentoría empresarial.
+                        </p>
+                      <!--  <a href="#" class="blog-link">Leer más</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 undefined_club | Innovación y Colaboración</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu after clicking
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
