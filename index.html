@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undefined_club | Organización</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="tech-pattern"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="./resources/page/logo.jpeg" alt="Undefined Club Logo">
+                <span>undefined_club</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">Menu</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#board">Mesa Directiva</a></li>
+                <li><a href="#departments">Departamentos</a></li>
+                <li><a href="#sponsors">Patrocinadores</a></li>
+                <li><a href="#schedule">Horarios</a></li>
+                <li><a href="#location">Ubicación</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carrusel de noticias destacadas -->
+    <section class="carousel-section" id="carouselSection" style="display:none;">
+        <div class="carousel-wrapper">
+            <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Anterior">&#8592;</button>
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack"></div>
+            </div>
+            <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Siguiente">&#8594;</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-progress" id="carouselProgress"></div>
+    </section>
+
+    <header>
+        <h1 class="glitch">undefined_club</h1>
+        <div class="subtitle">Modelo Híbrido: Cooperativa / Club</div>
+        <p class="tagline">
+            Innovación, desarrollo y aprendizaje colaborativo. Impulsando el talento tecnológico 
+            a través de proyectos reales, educación práctica y vinculación con la industria.
+        </p>
+    </header>
+
+    <main>
+        <!-- Mesa Directiva -->
+        <section id="board">
+            <h2 class="section-title">Mesa Directiva</h2>
+            <div class="board-grid">
+                <div class="board-card">
+                    <span class="role-badge president">Presidente</span>
+                    <h3>Alberto Márquez Escamilla</h3>
+                    <p>Fundador | Visión estratégica y representación institucional</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge vice">Vicepresidente</span>
+                    <h3>Christoper Rogelio Manriquez Quiñonez</h3>
+                    <p>Apoyo operativo y seguimiento de objetivos departamentales</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge secretary">Secretario</span>
+                    <h3>Valeria Sofía Gómez López</h3>
+                    <p>Gestión documental y control de miembros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge secretary">Secretario</span>
+                    <h3>Alan Olea Batres</h3>
+                    <p>Gestión documental y control de miembros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge treasurer">Tesorero</span>
+                    <h3>Aldo Mauricio Martinez Chavira</h3>
+                    <p>Administración de presupuestos y recursos financieros</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge social">Social Media Manager</span>
+                    <h3>Renata Morales Ibarra</h3>
+                    <p>Creación de contenido y administración de redes</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge social">Social Media Manager</span>
+                    <h3>Samuel Vega Pacheco</h3>
+                    <p>Creación de contenido y administración de redes</p>
+                </div>
+                <div class="board-card">
+                    <span class="role-badge marketing">Marketing</span>
+                    <h3>Daniel Valentin Rodríguez Valverde</h3>
+                    <p>Creación e implementación de estrategias de atracción al proyecto</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departamentos -->
+        <section id="departments" class="fade-in">
+            <h2 class="section-title">Departamentos Operativos</h2>
+            
+            <div class="dept-grid">
+                <!-- Académica -->
+                <div class="dept-card">
+                    <div class="dept-icon">📚</div>
+                    <h3>Área Académica</h3>
+                    <p class="desc">Educación y formación técnica de miembros</p>
+                    
+                    <div class="team-member">
+                        <div class="member-name">Alberto Márquez Escamilla</div>
+                        <div class="member-role">Coordinador de Instructores</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Christoper Rogelio Manriquez Quiñonez</div>
+                        <div class="member-role">Mentor</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Alan Olea Batres</div>
+                        <div class="member-role">Mentor</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Diseño de planes de estudio y talleres técnicos</li>
+                        <li>Mentoría y resolución de dudas técnicas</li>
+                        <li>Desarrollo de cursos especializados (ej. CRUD con Minecraft)</li>
+                    </ul>
+                </div>
+
+                <!-- Proyectos -->
+                <div class="dept-card">
+                    <div class="dept-icon">💻</div>
+                    <h3>Área de Proyectos</h3>
+                    <p class="desc">Desarrollo de soluciones tecnológicas</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Alberto Marquez Escamilla</div>
+                        <div class="member-role">Project Manager / Lead Developer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Christoper Rogelio Manriquez Quiñonez</div>
+                        <div class="member-role">Lead Developer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Alan Olea Batres</div>
+                        <div class="member-role">Lead Developer</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de proyectos externos y tiempos de entrega</li>
+                        <li>Desarrollo con React Native y Node.js/MongoDB</li>
+                        <li>Proyectos de IoT con C++ (ESP32, Raspberry Pi)</li>
+                        <li>Liderazgo técnico en diferentes stacks</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                        <strong style="color: var(--accent);">Roles:</strong> Project Managers, Lead Developers, Desarrolladores
+                    </p>
+                </div>
+
+                <!-- Logística y Vinculación -->
+                <div class="dept-card">
+                    <div class="dept-icon">🤝</div>
+                    <h3>Logística y Vinculación</h3>
+                    <p class="desc">Conexión con el ecosistema de innovación</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Renata Morales Ibarra</div>
+                        <div class="member-role">Relaciones Externas</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Aldo Mauricio Martinez Chavira</div>
+                        <div class="member-role">Gestor de Infraestructura</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Valeria Sofía Gómez López</div>
+                        <div class="member-role">Relaciones Externas</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de convenios con empresas e instituciones</li>
+                        <li>Organización de visitas y hackathones</li>
+                        <li>Vinculación con espacios como Startup Garden</li>
+                        <li>Administración de infraestructura física</li>
+                        <li>Inventario de equipos (impresoras 3D, sensores, laptops)</li>
+                        <li>Mantenimiento de servidores internos</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                        <strong style="color: var(--accent);">Roles:</strong> Relaciones Externas, Gestor de Infraestructura
+                    </p>
+                </div>
+
+                <!-- Comunicación y Marketing -->
+                <div class="dept-card">
+                    <div class="dept-icon">🎨</div>
+                    <h3>Comunicación y Marketing</h3>
+                    <p class="desc">Identidad visual y difusión del club</p>
+                    
+                    <div class="team-member">
+                        <div class="member-name">Renata Morales Ibarra</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Samuel Vega Pacheco</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Daniel Valentin Rodríguez Valverde</div>
+                        <div class="member-role">Social Media Manager / Diseñador</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de redes sociales y reclutamiento</li>
+                        <li>Diseño de identidad visual y branding</li>
+                        <li>Creación de materiales para talleres y eventos</li>
+                        <li>Difusión de logros y proyectos del club</li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="dept-card">
+                    <div class="dept-icon">⚖️</div>
+                    <h3>Área Legal</h3>
+                    <p class="desc">Cumplimiento normativo y documentación</p>
+
+                    <div class="team-member">
+                        <div class="member-name">Valeria Sofía Gómez López</div>
+                        <div class="member-role">Legal</div>
+                    </div>
+                    
+                    <ul class="responsibilities">
+                        <li>Gestión de aspectos legales y regulatorios</li>
+                        <li>Documentación de acuerdos y convenios</li>
+                        <li>Protección de propiedad intelectual</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors -->
+        <section id="sponsors" class="fade-in">
+            <h2 class="section-title">Nuestros Patrocinadores</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🚀</div>
+                    <div class="sponsor-name">Startup Garden</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🏢</div>
+                    <div class="sponsor-name">D'Grade</div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">🎓</div>
+                    <div class="sponsor-name">Tec de Monterrey</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedules -->
+        <section id="schedule" class="fade-in">
+            <h2 class="section-title">Horarios</h2>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-day">Martes</div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30 - 21:00</div>
+                        <div class="schedule-activity">Sesión Teórica / Taller</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00 - 22:00</div>
+                        <div class="schedule-activity">Convivencia</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-day">Jueves</div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30 - 21:00</div>
+                        <div class="schedule-activity">Sesión Práctica / Taller</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00 - 22:00</div>
+                        <div class="schedule-activity">Convivencia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section id="location" class="fade-in">
+            <h2 class="section-title">Nuestra Ubicación</h2>
+            <div class="location-container">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-106.0849%2C28.6687%2C-106.0749%2C28.6787&amp;layer=mapnik&amp;marker=28.67376%2C-106.07993" 
+                            style="border: 0;">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="location-info">
+                    <div class="info-item">
+                        <div class="info-label">Dirección</div>
+                        <div class="info-value">
+                            Campus Universitario Tecnológico de Monterrey CUU<br>
+                            PIT 3, Piso 7<br>
+                            Startup Garden<br>
+                            Av. H. Colegio Militar s/n, Bodegas del Estado, 31300 Chihuahua, Chih.
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Horario de Atención</div>
+                        <div class="info-value">Lunes a Viernes<br>16:00 - 21:00 hrs</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Contacto</div>
+                        <div class="info-value">
+                            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e5d51504a5f5d4a517e4b505a5b5857505b5a135d524b5c105d5153">[email&#160;protected]</a><br>
+                            Tel: (614) 123-8085
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Redes Sociales</div>
+                        <div class="social-buttons">
+                            <a href="https://instagram.com/undefined_club_cuu" target="_blank" class="social-btn instagram">
+                                <span class="social-btn-icon">📷</span>
+                                <span>Síguenos en Instagram</span>
+                            </a>
+                            <a href="https://chat.whatsapp.com/I77EJNh55pPBRBp0qgwfvP" target="_blank" class="social-btn whatsapp">
+                                <span class="social-btn-icon">💬</span>
+                                <span>Únete al Grupo de WhatsApp!</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog" class="fade-in">
+            <h2 class="section-title">Blog &amp; Noticias</h2>
+            <div class="blog-filters" id="blogFilters"></div>
+            <div class="blog-grid" id="blogGrid">
+                <p class="blog-loading">Cargando noticias...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 undefined_club | Innovación y Colaboración</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

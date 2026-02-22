@@ -1,0 +1,58 @@
+{
+  "blog": {
+    "titulo": "Blog & Noticias - undefined_club",
+    "descripcion": "Mantente al día con todo lo que pasa en el club.",
+    "noticias": [
+      {
+        "id": 1,
+        "titulo": "Alianza con Startup Garden",
+        "extracto": "Firmamos un convenio estratégico con Startup Garden que nos brinda acceso a espacios de coworking y mentoría empresarial.",
+        "imagen": null,
+        "tipo": "Noticia",
+        "destacada": true,
+        "fecha_inicio": "2026-01-20",
+        "fecha_fin": null
+      },
+      {
+        "id": 2,
+        "titulo": "Undefined_Racing Roblox Championship",
+        "extracto": "Aprende a construir aplicaciones móviles desde cero con React Native. Sesión práctica con casos de uso reales y ejercicios guiados.",
+        "imagen": "./resources/blog/classes/Undefined_Racing.png",
+        "tipo": "Clase",
+        "destacada": true,
+        "fecha_inicio": "2026-02-04",
+        "fecha_fin": "2026-02-04"
+      },
+      {
+        "id": 3,
+        "titulo": "Hackathon Universitario CUU 2026",
+        "extracto": "Participa en el hackathon más grande de Chihuahua. Forma equipos, resuelve retos reales y gana premios increíbles en 48 horas.",
+        "imagen": null,
+        "tipo": "Concurso",
+        "destacada": false,
+        "fecha_inicio": "2026-03-14",
+        "fecha_fin": "2026-03-16"
+      },
+      {
+        "id": 4,
+        "titulo": "Sesión: IoT con ESP32 y C++",
+        "extracto": "Exploraremos el ecosistema de Internet of Things usando placas ESP32, sensores y programación en C++ para proyectos embebidos.",
+        "imagen": null,
+        "tipo": "Clase",
+        "destacada": false,
+        "fecha_inicio": "2026-02-18",
+        "fecha_fin": "2026-02-18"
+      },
+      {
+        "id": 5,
+        "titulo": "Nuevo convenio con D'Grade",
+        "extracto": "Establecemos una alianza formal con D'Grade para ofrecer descuentos y acceso preferencial a recursos y herramientas para nuestros miembros.",
+        "imagen": null,
+        "tipo": "Noticia",
+        "destacada": false,
+        "fecha_inicio": "2026-02-01",
+        "fecha_fin": null
+      }
+    ]
+  }
+}
